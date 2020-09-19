@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.randomh1 {
+  font-size: 68px;
+    font-family: sans-serif;
+  color: #747474;
+}
+
+span.text {
+    padding: 0;
+    padding-right: 4px;
+    border-right: 2px solid #747474;
+    animation: blink 0.75s infinite;
+}
+@keyframes blink {
+  from {
+    border: none;
+  }
+  to {
+    border-color: 2px solid #747474;
+  }
+}
+.blue {
+  color: #4480ff;
+}
+.green {
+  color: #4caf50;
+}
+.yellow {
+  color: #f4b400;
+}
+.red {
+  color: #f44336;
+}
+.black {
+  color: #000;
+}
+    </style>
+  </head>
+  <body>
+<h1 class="randomh1"><span class="text blue">Build</span> for everyone</h1>
+<script type="text/javascript">
+const words = ["Build", "Create", "Design", "Code", "Draw"],
+colors = ["blue", "green", "yellow", "red", "black"],
+text = document.querySelector(".text");
+
+// Generator (iterate from 0-4)
+function* generator() {
+var index = 0;
+while (true) {
+  yield index++;
+
+  if (index > 4) {
+    index = 0;
+  }
+}
+}
+
+// Printing effect
+function printChar(word) {
+let i = 0;
+text.innerHTML = "";
+text.classList.add(colors[words.indexOf(word)]);
+let id = setInterval(() => {
+  if (i >= word.length) {
+    deleteChar();
+    clearInterval(id);
+  } else {
+    text.innerHTML += word[i];
+    i++;
+  }
+}, 200);
+}
+
+// Deleting effect
+function deleteChar() {
+let word = text.innerHTML;
+let i = word.length - 1;
+let id = setInterval(() => {
+  if (i >= 0) {
+    text.innerHTML = text.innerHTML.substring(0, text.innerHTML.length - 1);
+    i--;
+  } else {
+    text.classList.remove(colors[words.indexOf(word)]);
+    printChar(words[gen.next().value]);
+    clearInterval(id);
+  }
+}, 200);
+}
+
+// Initializing generator
+let gen = generator();
+
+printChar(words[gen.next().value]);
+</script>
+  </body>
+</html>
