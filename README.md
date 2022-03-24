@@ -5,3 +5,7 @@
 
 ## Todo
 1) Initial SetUp
+
+## Django request/response lifecycle
+
+URL -> View -> Model (typically) -> Template
