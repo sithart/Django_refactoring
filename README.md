@@ -1,8 +1,7 @@
-### HTML Template snippets
-### HTML Tips and Tricks
+### Django Best Practices
 
+## Objective
+   Build a Django App and Deployment
 
-## Static Templates
-
-## Dynamic Templates
-- [ ] random.html
+## Todo
+1) Initial SetUp
