@@ -1,4 +1,4 @@
-### Django Best Practices
+### Django Best Practices repository
 
 ## Objective
    Build a Django App and Deployment
